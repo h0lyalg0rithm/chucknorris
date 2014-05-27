@@ -3,7 +3,7 @@ require 'uri'
 class ChuckNorris
   attr_accessor :categories, :first_name, :last_name
   def initialize
-    @categories = Set.new
+    @categories = []
   end
   def self.random
     response = Unirest.get "http://api.icndb.com/jokes/random"
@@ -29,7 +29,7 @@ class ChuckNorris
     begin
       body = request "http://api.icndb.com/jokes/random/#{num}"
       body["value"].each do |x|
-        jokes.push x["jokes"]
+        jokes.push x["joke"]
       end
       return jokes
     rescue ChuckNorris::UnsuccessfulError => e

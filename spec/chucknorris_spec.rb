@@ -17,7 +17,7 @@ describe ChuckNorris do
       @chuck.should be_an_instance_of ChuckNorris
     end
     it "initializes category" do
-      @chuck.categories.should be_kind_of Set
+      @chuck.categories.should be_kind_of Array
     end
     it "creates empty categories" do
       @chuck.categories.should be_empty
